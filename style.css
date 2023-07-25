@@ -1,3 +1,21 @@
 .body {
   box-sizing: border-box;
 }
+
+#canvas {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 480px;
+  height: 480px;
+  border: 2px solid black;
+}
+
+.tile {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+}
