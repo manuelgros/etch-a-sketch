@@ -1,0 +1,25 @@
+Etch A Sketch Version 1:
+
+Goal:
+A simple web application with a 16x16 grid that poses as a canvas. The user will be able to draw on this canvas, by turning the tiles of the grid from white
+to black by hovering over it with the cursor. The application should also have a button to reset the canvas to its original state so the user can start over.
+Even though the goal at this state is a very simplistic application, the code should be "flexible" enough so I can built upon it later, and implement more 
+sophisticated function (different grid sizes, color adjustments, eraser etc.)
+
+Pseudocode:
+
+  Javascript:
+  
+  Create a 16x16 grid inside the div #canvas  
+    Write Loop that creates an array canvasTiles[] of items based on two arguments (height and width of Grit exp.: function grit(16, 16) => 16*16 = 256 items in array )
+    Write Loop that takes canvasTiles[] and makes each item a Div element (tile 1, tile2 etc...) with the class .tile inside the Div #canvas
+
+  
+  
+  CSS:
+  
+  Canvas:
+  set size for canvas
+
+  Tiles:
+  Size of Tiles should adjust so to fit into Canvas
