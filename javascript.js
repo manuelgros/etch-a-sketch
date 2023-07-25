@@ -22,7 +22,7 @@ function createCanvas(array) {
     let div = document.createElement("div");
     div.classList.add("tile");
     div.setAttribute('id', `tile${[i]}`);
-    div.innerHTML = `tile${[i]}`;
+    div.innerHTML = `•`;
     canvas.appendChild(div);
   }
 }
