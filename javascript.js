@@ -39,7 +39,7 @@ for (let i = 0; i < tiles.length; i++) {
   tiles[i].addEventListener('mousedown', () => {mouseIsDown = true});
   tiles[i].addEventListener('mouseup', () => {mouseIsDown = false});
   tiles[i].addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = paintColor;
   });
   tiles[i].addEventListener('mouseover', (e) => {
     if (mouseIsDown) {
