@@ -37,8 +37,8 @@
 
 .tile {
   display: flex;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   align-items: center;
   justify-content: center;
 }

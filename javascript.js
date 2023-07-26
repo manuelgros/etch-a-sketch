@@ -1,8 +1,8 @@
 //Create the Grid for #canvas
   
 //Loop that creates Array based on height and width of desired canvas
-let canvasHeight = 16;
-let canvasWidth = 16;
+let canvasHeight = 32;
+let canvasWidth = 32;
 
 function getTiles(canvasHeight, canvasWidth) {
   let tileArray = [];
@@ -12,7 +12,7 @@ function getTiles(canvasHeight, canvasWidth) {
   return tileArray;
 }
 
-console.log(getTiles(16, 16));
+console.log(getTiles(32, 32));
 
 //Loop that takes tileArray and creates a div element for each of the array items
 
@@ -28,7 +28,7 @@ function createCanvas(array) {
 }
 
 //Run functions to create Canvas
-createCanvas(getTiles(16, 16));
+createCanvas(getTiles(32, 32));
 
 //Implement drawing function 
 const tiles = document.querySelectorAll(".tile");
