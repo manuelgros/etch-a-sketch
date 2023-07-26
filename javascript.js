@@ -39,11 +39,11 @@ for (let i = 0; i < tiles.length; i++) {
   tiles[i].addEventListener('mousedown', () => {mouseIsDown = true});
   tiles[i].addEventListener('mouseup', () => {mouseIsDown = false});
   tiles[i].addEventListener('click', (e) => {
-    e.target.classList.add("blackPaint");
+    e.target.style.backgroundColor = "black";
   });
   tiles[i].addEventListener('mouseover', (e) => {
     if (mouseIsDown) {
-      e.target.classList.add("blackPaint");
+      e.target.style.backgroundColor = "black";
     }
   });
 }
