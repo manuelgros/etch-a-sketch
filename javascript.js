@@ -43,7 +43,30 @@ for (let i = 0; i < tiles.length; i++) {
   });
   tiles[i].addEventListener('mouseover', (e) => {
     if (mouseIsDown) {
-      e.target.style.backgroundColor = "black";
+      e.target.style.backgroundColor = paintColor;
     }
   });
 }
+
+// Let user use buttons to set paint color
+  //Still have to find a way to change the hover color, too
+let paintColor = "black";
+const btnBlack = document.querySelector("#black");
+const btnRed = document.querySelector("#red");
+const btnWhite = document.querySelector("#white");
+
+btnBlack.addEventListener('click', () => {
+  paintColor = "black";
+  return paintColor;
+});
+
+btnRed.addEventListener('click', () => {
+  paintColor = "red";
+  return paintColor;
+});
+
+btnWhite.addEventListener('click', () => {
+  paintColor = "white";
+  return paintColor;
+});
+
