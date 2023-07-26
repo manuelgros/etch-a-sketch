@@ -19,3 +19,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.tile:hover {
+  background-color: black;
+}
+
+.blackPaint {
+  background-color: black;
+}

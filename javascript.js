@@ -22,9 +22,28 @@ function createCanvas(array) {
     let div = document.createElement("div");
     div.classList.add("tile");
     div.setAttribute('id', `tile${[i]}`);
-    div.innerHTML = `•`;
+    // div.innerHTML = `•`;
     canvas.appendChild(div);
   }
 }
 
+//Run functions to create Canvas
 createCanvas(getTiles(16, 16));
+
+//Implement drawing function 
+const tiles = document.querySelectorAll(".tile");
+
+//First two eventListener register if mouse is pressed and let user draw continuously
+let mouseIsDown = false;
+for (let i = 0; i < tiles.length; i++) {
+  tiles[i].addEventListener('mousedown', () => {mouseIsDown = true});
+  tiles[i].addEventListener('mouseup', () => {mouseIsDown = false});
+  tiles[i].addEventListener('click', (e) => {
+    e.target.classList.add("blackPaint");
+  });
+  tiles[i].addEventListener('mouseover', (e) => {
+    if (mouseIsDown) {
+      e.target.classList.add("blackPaint");
+    }
+  });
+}
