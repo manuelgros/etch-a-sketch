@@ -14,6 +14,12 @@ Pseudocode:
     Write Loop that creates an array canvasTiles[] of items based on two arguments (height and width of Grit exp.: function grit(16, 16) => 16*16 = 256 items in array )
     Write Loop that takes canvasTiles[] and makes each item a Div element (tile 1, tile2 etc...) with the class .tile inside the Div #canvas
 
+  Make the grid adjustable (Ver 2)
+    create slider (value 2 - 64 (?) )
+    set variable for x and y coordinate for grid //only one since x = y
+    let slider set the value for x/y
+    set .tile height and weight to x/#canvasHeight and y/#canvasWidth
+
   
   
   CSS:
