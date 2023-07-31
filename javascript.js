@@ -10,7 +10,7 @@ function getTileArray(height, width) {
   }
   return tileArray;
 }
-  //Loop that takes tileArray and creates a div (tiles of grit)
+  //Loop that takes tileArray and creates a divs based on it (tiles of grit)
 function getTileElements(array) {
   const canvas = document.querySelector("#canvas");
   for (i = 0; i < array.length; i++) {
@@ -65,7 +65,7 @@ for (i = 0; i < btnSize.length; i++) {
 } 
 
 
-// Rainbow button
+// Rainbow mode
 const btnRainbow = document.querySelector("#rainbow");
 let rainbowOn = false;
   //changing btn colors depending if on or off
@@ -78,11 +78,13 @@ function rainbowBtnColor() {
     btnRainbow.style.backgroundColor = 'white';
   }
 }
+  //Toggle rainbow mode on/off
 function toggleRainbow() {
   rainbowOn = !rainbowOn;
   rainbowBtnColor();
   console.log(rainbowOn)
 }
+  //let button toggle rainbow mode
 btnRainbow.addEventListener('click', toggleRainbow);
   //Create "Rainbow" color
 function random(number) {
@@ -91,7 +93,7 @@ function random(number) {
 function rainbowGenerator() {
   const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
   return randomColor;
-}
+} // see draw() for implementation of rainbow mode in drawing process
 
 
 //Implement drawing function 
