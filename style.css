@@ -48,6 +48,9 @@ body {
 .controls #black {
   margin-top: 30px;
 }
+.controls #sixteen {
+  margin-top: 30px;
+}
 
 .controls button:hover {
   background-color: black;
