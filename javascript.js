@@ -101,9 +101,9 @@ function draw() {
   for (let i = 0; i < tiles.length; i++) {
     //First two eventListener register if mouse is pressed and let user draw continuously
     tiles[i].addEventListener('mousedown', () => {mouseIsDown = true});
-    tiles[i].addEventListener('mouseup', () => {mouseIsDown = false});
-    // including the rainbow mode 
+    tiles[i].addEventListener('mouseup', () => {mouseIsDown = false}); 
     tiles[i].addEventListener('click', (e) => {
+      // including the rainbow mode
       if (rainbowOn) {
       e.target.style.backgroundColor = rainbowGenerator();
       } else {
@@ -112,6 +112,7 @@ function draw() {
   });
     tiles[i].addEventListener('mouseover', (e) => {
       if (mouseIsDown) {
+        // including the rainbow mode
         if (rainbowOn) {
         e.target.style.backgroundColor = rainbowGenerator();
         } else {
