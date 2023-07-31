@@ -13,10 +13,13 @@
     <h1 id="title">Etch-A-Sketch</h1>
   </div>
   <div id="application">
-    <div class="colorSelection">
+    <div class="controls">
       <button id="black">Black</button>
       <button id="red">Red</button>
       <button id="white">Eraser</button>
+      <div id="slidercontainer">
+        <input type="range" min="1" max="64" value="16" class="slider" id="sizeSlider">
+      </div>
     </div>
     <div id="canvas"></div>
   </div>

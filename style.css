@@ -23,14 +23,14 @@ body {
   /* justify-content: space-evenly; */
 }
 
-.colorSelection {
+.controls {
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
   margin-left: 20px;
 }
 
-.colorSelection button {
+.controls button {
   display: flex;
   background-color: white;
   border: 0px solid black;
@@ -45,13 +45,18 @@ body {
   font-family: monospace;
 }
 
-.colorSelection #black {
+.controls #black {
   margin-top: 30px;
 }
 
-.colorSelection button:hover {
+.controls button:hover {
   background-color: black;
   color: white;
+}
+
+#sizeSlider {
+  width: 100px;
+  background: white;
 }
 
 #canvas {
@@ -75,10 +80,6 @@ body {
   align-items: center;
   justify-content: center;
   border: 0.5px solid rgb(198, 198, 198);
-}
-
-.tile:hover {
-  background-color: black;
 }
 
 /* .blackPaint {
