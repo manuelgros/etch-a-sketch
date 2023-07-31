@@ -1,4 +1,5 @@
 //Create the Grid for #canvas
+  //Set Size for Canvas
 let canvasHeight = 32;
 let canvasWidth = 32; 
   //Loop that creates Array based on height and width of desired canvas
