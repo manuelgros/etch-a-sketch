@@ -1,8 +1,7 @@
 //Create the Grid for #canvas
-  
-//Loop that creates Array based on height and width of desired canvas
 let canvasHeight = 32;
-let canvasWidth = 32;
+let canvasWidth = 32; 
+  //Loop that creates Array based on height and width of desired canvas
 function getTiles(canvasHeight, canvasWidth) {
   let tileArray = [];
   for (let i = 0; i <= (canvasHeight*canvasWidth-1); i++) {
@@ -10,9 +9,7 @@ function getTiles(canvasHeight, canvasWidth) {
   }
   return tileArray;
 }
-
-
-//Loop that takes tileArray and creates a div element for each of the array items
+  //Loop that takes tileArray and creates a div (tiles of grit)
 function createCanvas(array) {
   const canvas = document.querySelector("#canvas");
   for (i = 0; i < array.length; i++) {
@@ -24,13 +21,8 @@ function createCanvas(array) {
   }
 }
 createCanvas(getTiles(canvasHeight, canvasWidth));
-
-
-//Create NodeList to ass all tiles
+  // Set tile size trough function to make grit size adjustable 
 const tiles = document.querySelectorAll(".tile");
-
-
-// Set tile size trough function to make grit size adjustable 
 function getTileSize() {
   for (let i = 0; i < tiles.length; i++) {
     tiles[i].setAttribute("style",`height:${480/canvasHeight}px; width:${480/canvasWidth}px`);
