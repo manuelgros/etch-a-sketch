@@ -12,10 +12,8 @@ function getTiles(canvasHeight, canvasWidth) {
   return tileArray;
 }
 
-console.log(getTiles(32, 32));
 
 //Loop that takes tileArray and creates a div element for each of the array items
-
 function createCanvas(array) {
   const canvas = document.querySelector("#canvas");
   for (i = 0; i < array.length; i++) {
@@ -26,14 +24,21 @@ function createCanvas(array) {
     canvas.appendChild(div);
   }
 }
+createCanvas(getTiles(canvasHeight, canvasWidth));
 
-//Run functions to create Canvas
-createCanvas(getTiles(32, 32));
-
-//Implement drawing function 
+//Create NodeList to ass all tiles
 const tiles = document.querySelectorAll(".tile");
 
-//First two eventListener register if mouse is pressed and let user draw continuously
+// Set tile size trough function to make grit size adjustable 
+function getTileSize() {
+  for (let i = 0; i < tiles.length; i++) {
+    tiles[i].setAttribute("style",`height:${480/canvasHeight}px; width:${480/canvasWidth}px`);
+  }
+}
+getTileSize();
+
+//Implement drawing function 
+  //First two eventListener register if mouse is pressed and let user draw continuously
 let mouseIsDown = false;
 for (let i = 0; i < tiles.length; i++) {
   tiles[i].addEventListener('mousedown', () => {mouseIsDown = true});
