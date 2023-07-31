@@ -1,5 +1,5 @@
 //Create the Grid for #canvas
-  //Set Size for Canvas
+  //Initial size for Canvas
 let canvasHeight = 16;
 let canvasWidth = 16;
   //Loop that creates Array based on height and width of desired canvas
@@ -20,8 +20,6 @@ function getTileElements(array) {
     // div.innerHTML = `•`;
     canvas.appendChild(div);
   }
-  // let tiles = document.querySelectorAll(".tile");
-  // return tiles;
 }
 getTileElements(getTileArray(canvasHeight, canvasWidth)); //initial function call
   
@@ -30,7 +28,6 @@ let tiles = document.querySelectorAll(".tile");
 function getTileSize(height, width) {
   let tiles = document.querySelectorAll(".tile");
   for (let i = 0; i < tiles.length; i++) {
-    // tiles[i].setAttribute("style",`height:${480/height}px; width:${480/width}px`);
     tiles[i].style.width = `${480/height}px`;
     tiles[i].style.height = `${480/width}px`;
   }
