@@ -124,23 +124,10 @@ draw(); //initial function call
 
 
 // Let user use buttons to set paint color
-  //Still have to find a way to change the hover color, too
 let paintColor = "black"; //initially selected color
-const btnBlack = document.querySelector("#black");
-const btnRed = document.querySelector("#red");
-const btnWhite = document.querySelector("#white");
-
-btnBlack.addEventListener('click', () => {
-  paintColor = "black";
-  return paintColor;
-});
-
-btnRed.addEventListener('click', () => {
-  paintColor = "red";
-  return paintColor;
-});
-
-btnWhite.addEventListener('click', () => {
-  paintColor = "white";
-  return paintColor;
-});
+const btnColors = document.querySelectorAll('#paintControls button');
+for (i = 0; i < btnColors.length; i++) {
+  btnColors[i].addEventListener('click', (e) => {
+    paintColor = e.target.id;
+  })
+}
