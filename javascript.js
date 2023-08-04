@@ -105,8 +105,10 @@ function draw() {
       // including the rainbow mode
       if (rainbowOn) {
       e.target.style.backgroundColor = rainbowGenerator();
+      e.target.classList.add('painted');
       } else {
         e.target.style.backgroundColor = paintColor;
+        e.target.classList.add('painted');
       }
   });
     tiles[i].addEventListener('mouseover', (e) => {
@@ -114,8 +116,10 @@ function draw() {
         // including the rainbow mode
         if (rainbowOn) {
         e.target.style.backgroundColor = rainbowGenerator();
+        e.target.classList.add('painted');
         } else {
           e.target.style.backgroundColor = paintColor;
+          e.target.classList.add('painted');
         }
     }})
   }
@@ -131,3 +135,14 @@ for (i = 0; i < btnColors.length; i++) {
     paintColor = e.target.id;
   })
 }
+
+// Clear button 
+const btnClear = document.querySelector('#clear');
+btnClear.addEventListener('click', () => {
+  let paintedTiles = document.querySelectorAll(".painted");
+  for (let i = 0; i < paintedTiles.length; i++) {
+    // paintedTiles[i].style.setProperty('background-color', 'initial');
+    paintedTiles[i].style.removeProperty('background-color');
+    paintedTiles[i].classList.remove('painted');
+  }
+})
