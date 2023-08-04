@@ -75,6 +75,7 @@ body {
 
 #canvas {
   display: flex;
+  flex-shrink: 0;
   align-content: flex-start;
   flex-wrap: wrap;
   /* margin-left: 50px; */
