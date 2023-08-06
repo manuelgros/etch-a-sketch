@@ -65,20 +65,11 @@ for (i = 0; i < btnSize.length; i++) {
 // Rainbow mode
 const btnRainbow = document.querySelector("#rainbow");
 let rainbowOn = false;
-  //changing btn colors depending if on or off
-function rainbowBtnColor() {
-  if (rainbowOn) {
-    btnRainbow.style.color = 'white';
-    btnRainbow.style.backgroundColor = 'black';
-  } else {
-    btnRainbow.style.color = 'black';
-    btnRainbow.style.backgroundColor = 'white';
-  }
-}
+ 
   //Toggle rainbow mode on/off
 function toggleRainbow() {
   rainbowOn = !rainbowOn;
-  rainbowBtnColor();
+  toggleBtnColor(btnRainbow,rainbowOn);
   console.log(rainbowOn)
 }
   //let button toggle rainbow mode
@@ -146,3 +137,15 @@ btnClear.addEventListener('click', () => {
     paintedTiles[i].classList.remove('painted');
   }
 })
+
+
+ //Changing btn colors, indicating of toggled On or Off
+ function toggleBtnColor(btn, condition) {
+  if (condition) {
+    btn.style.color = 'white';
+    btn.style.backgroundColor = 'black';
+  } else {
+    btn.style.color = 'black';
+    btn.style.backgroundColor = 'white';
+  }
+}
