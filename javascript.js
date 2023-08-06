@@ -201,7 +201,7 @@ function darkenColor(e) {
   let rgbArray = color.slice(color.indexOf("(") + 1, color.indexOf(")")).split(", ");
   const newRgbArray = []
   for (i = 0; i < rgbArray.length; i++) {
-    let colorNr = +rgbArray[i] - (+rgbArray[1]*0.1);
+    let colorNr = +rgbArray[i] - (+rgbArray[i]*0.1);
     newRgbArray.push(colorNr);
   }
   e.style.backgroundColor = `rgb(${newRgbArray[0]}, ${newRgbArray[1]}, ${newRgbArray[2]})`;
