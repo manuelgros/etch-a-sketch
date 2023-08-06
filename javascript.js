@@ -165,6 +165,29 @@ btnGrit.addEventListener('click', () => {
 }
 
 
+//Darkening Effect
+function darkenColor(e) {
+  const color = e.style.backgroundColor;
+  let rgbArray = color.slice(
+    color.indexOf("(") + 1, 
+    color.indexOf(")")
+  ).split(", ");
+  const newRgbArray = []
+  for (i = 0; i < rgbArray.length; i++) {
+    let colorNr = +rgbArray[i] - 10
+    newRgbArray.push(colorNr);
+  }
+  e.style.backgroundColor = `rgb(${newRgbArray[0]}, ${newRgbArray[1]}, ${newRgbArray[2]})`;
+}
+
+const btnDarken = document.querySelector('#toggleDarken');
+let darkenOn = false;
+btnDarken.addEventListener('click', () => {
+  darkenOn = !darkenOn;
+  toggleBtnColor(btnDarken, darkenOn);
+})
+
+
 //Initial function calls to create canvas
 addEventListener('load', () => {
   getTileElements(getTileArray(canvasHeight, canvasWidth)); 
