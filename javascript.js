@@ -17,7 +17,6 @@ function getTileElements(array) {
     let div = document.createElement("div");
     div.classList.add("tile");
     div.setAttribute('id', `tile${[i]}`);
-    // div.innerHTML = `•`;
     canvas.appendChild(div);
   }
 }
@@ -35,14 +34,14 @@ function createCanvas (height, width) {
   getTileElements(getTileArray(height, width));
   getTileSize(height, width);
 }
-
-  //Deleting old Tiles (necessary when creating Canvas with different sized grit)
-function deleteTiles() {
+  //set canvas color to white (clear canvas)
+function setCanvasWhite() {
   let tiles = document.querySelectorAll(".tile");
   for (let i = 0; i < tiles.length; i++) {
-    document.getElementById(`tile${[i]}`).remove();
+    tiles[i].style.setProperty('background-color', 'rgb(255, 255, 255)');
   }
 }
+
 
 //Set grit Size to button selection
 const btnSize = document.querySelectorAll(".sizes");
@@ -53,8 +52,16 @@ for (i = 0; i < btnSize.length; i++) {
     let canvasWidth = e.target.getAttribute('data-size');//set width
     getTileElements(getTileArray(canvasHeight, canvasWidth));//getting tile elements with new arguments
     getTileSize(canvasHeight, canvasWidth);//set tile height/width based on new dimensions
+    setCanvasWhite();
     draw();
   })
+}
+  //Deleting old Tiles (necessary when creating Canvas with different sized grit)
+function deleteTiles() {
+  let tiles = document.querySelectorAll(".tile");
+  for (let i = 0; i < tiles.length; i++) {
+    document.getElementById(`tile${[i]}`).remove();
+  }
 } 
 
 
@@ -128,15 +135,28 @@ for (i = 0; i < btnColors.length; i++) {
 
 
 // Clear button 
-const btnClear = document.querySelector('#clear');
-btnClear.addEventListener('click', () => {
-  let paintedTiles = document.querySelectorAll(".painted");
-  for (let i = 0; i < paintedTiles.length; i++) {
-    // paintedTiles[i].style.setProperty('background-color', 'initial');
-    paintedTiles[i].style.removeProperty('background-color');
-    paintedTiles[i].classList.remove('painted');
+function setCanvasWhite() {
+  let tiles = document.querySelectorAll(".tile");
+  for (let i = 0; i < tiles.length; i++) {
+    tiles[i].style.setProperty('background-color', 'rgb(255, 255, 255)');
   }
-})
+}
+const btnClear = document.querySelector('#clear');
+btnClear.addEventListener('click', setCanvasWhite);
+
+
+// OLD DELETE BUTTON
+// Worked through deleting backgroundColor values. Changed to setting all tiles
+// to white initially, so that darkenColor() works on them from the start
+//        const btnClear = document.querySelector('#clear');
+//        btnClear.addEventListener('click', () => {
+//          let paintedTiles = document.querySelectorAll(".painted");
+//          for (let i = 0; i < paintedTiles.length; i++) {
+//            // paintedTiles[i].style.setProperty('background-color', 'initial');
+//            paintedTiles[i].style.removeProperty('background-color');
+//            paintedTiles[i].classList.remove('painted');
+//          }
+//        })
 
 
 // Toggle Grit 
@@ -174,10 +194,8 @@ btnGrit.addEventListener('click', () => {
 //Darkening Effect
 function darkenColor(e) {
   const color = e.style.backgroundColor;
-  let rgbArray = color.slice(
-    color.indexOf("(") + 1, 
-    color.indexOf(")")
-  ).split(", ");
+  //creates array by taking the rgb value and slicing it up, so that we end up with the three numbers
+  let rgbArray = color.slice(color.indexOf("(") + 1, color.indexOf(")")).split(", ");
   const newRgbArray = []
   for (i = 0; i < rgbArray.length; i++) {
     let colorNr = +rgbArray[i] - 10
@@ -185,7 +203,6 @@ function darkenColor(e) {
   }
   e.style.backgroundColor = `rgb(${newRgbArray[0]}, ${newRgbArray[1]}, ${newRgbArray[2]})`;
 }
-
 const btnDarken = document.querySelector('#toggleDarken');
 let darkenOn = false;
 btnDarken.addEventListener('click', () => {
@@ -198,5 +215,6 @@ btnDarken.addEventListener('click', () => {
 addEventListener('load', () => {
   getTileElements(getTileArray(canvasHeight, canvasWidth)); 
   getTileSize(canvasHeight, canvasWidth); 
+  setCanvasWhite();
   draw(); 
 })
