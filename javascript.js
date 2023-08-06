@@ -80,13 +80,12 @@ function rainbowGenerator() {
 
 
 //Implement drawing function 
-let mouseIsDown = false;
 function draw() {
   let tiles = document.querySelectorAll(".tile");
+  let mouseIsDown = false; //register if mouse is pressed and let user draw continuously
+  document.addEventListener('mousedown', () => {mouseIsDown = true});
+  document.addEventListener('mouseup', () => {mouseIsDown = false}); 
   for (let i = 0; i < tiles.length; i++) {
-    //First two eventListener register if mouse is pressed and let user draw continuously
-    tiles[i].addEventListener('mousedown', () => {mouseIsDown = true});
-    tiles[i].addEventListener('mouseup', () => {mouseIsDown = false}); 
     tiles[i].addEventListener('click', (e) => {
       // including the rainbow mode
       if (rainbowOn) {
