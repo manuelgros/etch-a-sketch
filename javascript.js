@@ -91,6 +91,9 @@ function draw() {
       if (rainbowOn) {
       e.target.style.backgroundColor = rainbowGenerator();
       e.target.classList.add('painted');
+      } else if (darkenOn) {
+        darkenColor(e.target);
+        e.target.classList.add('painted');
       } else {
         e.target.style.backgroundColor = paintColor;
         e.target.classList.add('painted');
@@ -102,6 +105,9 @@ function draw() {
         if (rainbowOn) {
         e.target.style.backgroundColor = rainbowGenerator();
         e.target.classList.add('painted');
+        } else if (darkenOn) {
+          darkenColor(e.target);
+          e.target.classList.add('painted');
         } else {
           e.target.style.backgroundColor = paintColor;
           e.target.classList.add('painted');
