@@ -70,8 +70,8 @@ body {
 }
 
 /* #gritControls button {
-  /* box-shadow: none; */
-/* }  */
+      box-shadow: none; 
+} */
 
 #canvas {
   display: flex;
@@ -91,6 +91,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.gritOn {
   border: 0.5px solid rgb(198, 198, 198);
 }
 

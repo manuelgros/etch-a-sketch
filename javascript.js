@@ -10,7 +10,7 @@ function getTileArray(height, width) {
   }
   return tileArray;
 }
-  //Loop that takes tileArray and creates a divs based on it (tiles of grit)
+  //Loop that takes tileArray and creates a div's based on it (tiles of grit)
 function getTileElements(array) {
   const canvas = document.querySelector("#canvas");
   for (i = 0; i < array.length; i++) {
@@ -65,11 +65,10 @@ for (i = 0; i < btnSize.length; i++) {
 // Rainbow mode
 const btnRainbow = document.querySelector("#rainbow");
 let rainbowOn = false;
- 
   //Toggle rainbow mode on/off
 function toggleRainbow() {
   rainbowOn = !rainbowOn;
-  toggleBtnColor(btnRainbow,rainbowOn);
+  toggleBtnColor(btnRainbow,rainbowOn);//changes btn color when toggled on
   console.log(rainbowOn)
 }
   //let button toggle rainbow mode
@@ -127,6 +126,7 @@ for (i = 0; i < btnColors.length; i++) {
   })
 }
 
+
 // Clear button 
 const btnClear = document.querySelector('#clear');
 btnClear.addEventListener('click', () => {
@@ -139,7 +139,28 @@ btnClear.addEventListener('click', () => {
 })
 
 
- //Changing btn colors, indicating of toggled On or Off
+// Toggle Grit 
+const btnGrit = document.querySelector("#toggleGrit");
+let gritOn = false;
+function gritToggle() {
+  let tiles = document.querySelectorAll(".tile");
+  for (i = 0; i < tiles.length; i++) {
+    if (gritOn) {
+      tiles[i].classList.add('gritOn');
+    } else {
+      tiles[i].classList.remove('gritOn');
+    }
+  }
+}
+
+btnGrit.addEventListener('click', () => {
+  gritOn = !gritOn;
+  gritToggle()
+  toggleBtnColor(btnGrit, gritOn);//changes btn color when toggled on
+})
+
+ 
+//Changing btn colors, indicating of toggled On or Off
  function toggleBtnColor(btn, condition) {
   if (condition) {
     btn.style.color = 'white';
