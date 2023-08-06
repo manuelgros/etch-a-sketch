@@ -21,8 +21,6 @@ function getTileElements(array) {
     canvas.appendChild(div);
   }
 }
-getTileElements(getTileArray(canvasHeight, canvasWidth)); //initial function call
-  
   // Set tile size trough function to make grit size adjustable 
 let tiles = document.querySelectorAll(".tile");
 function getTileSize(height, width) {
@@ -32,8 +30,6 @@ function getTileSize(height, width) {
     tiles[i].style.height = `${480/width}px`;
   }
 }
-getTileSize(canvasHeight, canvasWidth); //Initial function call
-
   //bringing together the single steps of canvas creations
 function createCanvas (height, width) {
   getTileElements(getTileArray(height, width));
@@ -114,7 +110,6 @@ function draw() {
     }})
   }
 }
-draw(); //initial function call
 
 
 // Let user use buttons to set paint color
@@ -170,3 +165,11 @@ btnGrit.addEventListener('click', () => {
     btn.style.backgroundColor = 'white';
   }
 }
+
+
+//Initial function calls to create canvas
+addEventListener('load', () => {
+  getTileElements(getTileArray(canvasHeight, canvasWidth)); 
+  getTileSize(canvasHeight, canvasWidth); 
+  draw(); 
+})
