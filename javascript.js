@@ -72,6 +72,9 @@ let rainbowOn = false;
 function toggleRainbow() {
   rainbowOn = !rainbowOn;
   toggleBtnColor(btnRainbow,rainbowOn);//changes btn color when toggled on
+  //Deactivates darken when rainbow is on
+  darkenOn = false;
+  toggleBtnColor(btnDarken, darkenOn);
   console.log(rainbowOn)
 }
   //let button toggle rainbow mode
@@ -208,6 +211,9 @@ let darkenOn = false;
 btnDarken.addEventListener('click', () => {
   darkenOn = !darkenOn;
   toggleBtnColor(btnDarken, darkenOn);
+  //Deactivate Rainbow when darken is on 
+  rainbowOn = false
+  toggleBtnColor(btnRainbow, rainbowOn);
 })
 
 
