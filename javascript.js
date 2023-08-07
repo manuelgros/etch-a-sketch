@@ -243,7 +243,7 @@ let darkenOn = false;
 btnDarken.addEventListener('click', () => {
   darkenOn = !darkenOn;
   toggleBtnColor(btnDarken, darkenOn);
-  //Deactivate Rainbow when darken is on 
+  //Deactivate Rainbow and Eraser when darken is on 
   rainbowOn = false;
   toggleBtnColor(btnRainbow, rainbowOn);
   eraserOn = false;
