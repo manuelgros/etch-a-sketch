@@ -74,9 +74,11 @@ function toggleRainbow() {
   toggleBtnColor(btnRainbow,rainbowOn);//changes btn color when toggled on
   //Deactivates darken and eraser when rainbow is on
   darkenOn = false;
-  toggleBtnColor(btnDarken, darkenOn);
   eraserOn = false;
+  lightenOn = false;
+  toggleBtnColor(btnDarken, darkenOn);
   toggleBtnColor(btnEraser, eraserOn);
+  toggleBtnColor(btnLighten, lightenOn);
 }
   //let button toggle rainbow mode
 btnRainbow.addEventListener('click', toggleRainbow);
@@ -102,8 +104,8 @@ function draw() {
       if (rainbowOn) {
       e.target.style.backgroundColor = rainbowGenerator();
       e.target.classList.add('painted');
-      } else if (darkenOn) {
-        darkenColor(e.target);
+      } else if (darkenOn || lightenOn) {
+        dodgeAndBurn(e.target);
         e.target.classList.add('painted');
       } else {
         e.target.style.backgroundColor = paintColor;
@@ -116,8 +118,8 @@ function draw() {
         if (rainbowOn) {
         e.target.style.backgroundColor = rainbowGenerator();
         e.target.classList.add('painted');
-        } else if (darkenOn) {
-          darkenColor(e.target);
+        } else if (darkenOn || lightenOn) {
+          dodgeAndBurn(e.target);
           e.target.classList.add('painted');
         } else {
           e.target.style.backgroundColor = paintColor;
@@ -152,9 +154,11 @@ function updateColor() {
   rainbowOn = false;
   darkenOn = false;
   eraserOn = false;
+  lightenOn = false;
   toggleBtnColor(btnDarken, darkenOn);
   toggleBtnColor(btnRainbow, rainbowOn);
   toggleBtnColor(btnEraser, eraserOn);
+  toggleBtnColor(btnLighten, lightenOn);
 }
 
 //Eraser feature
@@ -165,9 +169,11 @@ btnEraser.addEventListener('click', () => {
   rainbowOn = false;
   darkenOn = false;
   eraserOn = true;
+  lightenOn = false;
   toggleBtnColor(btnDarken, darkenOn);
   toggleBtnColor(btnRainbow, rainbowOn);
   toggleBtnColor(btnEraser, eraserOn);
+  toggleBtnColor(btnLighten, lightenOn);
 })
 
 
@@ -226,18 +232,25 @@ btnGrit.addEventListener('click', () => {
 }
 
 
-//Darkening Effect
-function darkenColor(e) {
+//Darken and Lighten Effect
+function dodgeAndBurn(e) {
   const color = e.style.backgroundColor;
   //creates array by taking the rgb value and slicing it up, so that we end up with the three numbers
   let rgbArray = color.slice(color.indexOf("(") + 1, color.indexOf(")")).split(", ");
   const newRgbArray = []
-  for (i = 0; i < rgbArray.length; i++) {
-    let colorNr = +rgbArray[i] - (+rgbArray[i]*0.1);
-    newRgbArray.push(colorNr);
+  if (darkenOn) {
+    for (i = 0; i < rgbArray.length; i++) {
+      let colorNr = +rgbArray[i] - (+rgbArray[i]*0.1);
+      newRgbArray.push(colorNr);
+    }} else if (lightenOn) {
+      for (i = 0; i < rgbArray.length; i++) {
+        let colorNr = +rgbArray[i] + (+rgbArray[i]*0.1);
+        newRgbArray.push(colorNr);
+      } 
+    }
+    e.style.backgroundColor = `rgb(${newRgbArray[0]}, ${newRgbArray[1]}, ${newRgbArray[2]})`;
   }
-  e.style.backgroundColor = `rgb(${newRgbArray[0]}, ${newRgbArray[1]}, ${newRgbArray[2]})`;
-}
+  // Darken effect
 const btnDarken = document.querySelector('#toggleDarken');
 let darkenOn = false;
 btnDarken.addEventListener('click', () => {
@@ -248,7 +261,23 @@ btnDarken.addEventListener('click', () => {
   toggleBtnColor(btnRainbow, rainbowOn);
   eraserOn = false;
   toggleBtnColor(btnEraser, eraserOn);
+  lightenOn = false;
+  toggleBtnColor(btnLighten, lightenOn);
 })
+ // Lighten Effect
+const btnLighten = document.querySelector("#toggleLighten");
+let lightenOn = false;
+btnLighten.addEventListener('click', () => {
+  lightenOn = !lightenOn;
+  toggleBtnColor (btnLighten, lightenOn);
+  rainbowOn = false;
+  toggleBtnColor (btnRainbow, rainbowOn)
+  darkenOn = false;
+  toggleBtnColor (btnDarken, darkenOn)
+  eraserOn = false;
+  toggleBtnColor (btnEraser, eraserOn)
+})
+
 
 
 //Initial function calls to create canvas
