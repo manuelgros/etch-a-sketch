@@ -24,7 +24,8 @@ body {
   margin-top: 0px;
   padding: 25px;
   border-radius: 7px;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 50px;
   /* gap: 40px; */
   /* background-color: rgb(234, 234, 214); */
   background-color: #b8c4be;
