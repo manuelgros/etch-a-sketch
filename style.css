@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: rgb(222, 222, 203);
+  /* background-color: rgb(222, 222, 203); */
+  background-color: #F0F4EF;
 }
 
 .header {
@@ -24,7 +25,8 @@ body {
   border-radius: 7px;
   justify-content: space-evenly;
   /* gap: 40px; */
-  background-color: rgb(234, 234, 214);
+  /* background-color: rgb(234, 234, 214); */
+  background-color: #b8c4be;
 }
 
 .controls {
@@ -39,18 +41,21 @@ body {
   justify-content: center;
   align-items: center;
   background-color: white;
-  border: 2px solid rgb(89, 89, 89);
-  border-radius: 0px;
+  /* background-color: #8E8358; */
+  /* background-color: #697A21; */
+  border: 0px double #023C40;
+  border-radius: 2px;
   font-size: 13px;
   font-weight: 500;
   width: 120px;
   height: 40px;
-  /* box-shadow: 3px 3px 5px grey; */
+  box-shadow: 3px 3px 5px grey;
   font-family: monospace;
 }
 
 .controls button:hover {
-  background-color: black;
+  /* background-color: black; */
+  background-color: #023C40;
   color: white;
 }
 
@@ -73,7 +78,7 @@ body {
 }
 #colorPicker::-webkit-color-swatch {
   border-radius: 50%;
-  /* border: 7px solid #000000; */
+  /* border: 5px double #8d8282; */
 }
 
 #gritControls {

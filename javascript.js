@@ -202,7 +202,7 @@ btnGrit.addEventListener('click', () => {
  function toggleBtnColor(btn, condition) {
   if (condition) {
     btn.style.color = 'white';
-    btn.style.backgroundColor = 'black';
+    btn.style.backgroundColor = '#023C40';
   } else {
     btn.style.color = 'black';
     btn.style.backgroundColor = 'white';
