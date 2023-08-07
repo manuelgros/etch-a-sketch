@@ -127,13 +127,29 @@ function draw() {
 }
 
 
-// Let user use buttons to set paint color
-let paintColor = "black"; //initially selected color
-const btnColors = document.querySelectorAll('#paintControls button');
-for (i = 0; i < btnColors.length; i++) {
-  btnColors[i].addEventListener('click', (e) => {
-    paintColor = e.target.id;
-  })
+// Let user use buttons to set paint color OLD METHOD, updated to Color Picker 
+// let paintColor = "black"; //initially selected color
+// const btnColors = document.querySelectorAll('#paintControls button');
+// for (i = 0; i < btnColors.length; i++) {
+//   btnColors[i].addEventListener('click', (e) => {
+//     paintColor = e.target.id;
+//   })
+// }
+
+
+//Color Picker to select paint color
+const colorPicker = document.querySelector("#colorPicker");
+const defaultColor = "#000000";
+let paintColor = "#000000"
+window.addEventListener("load", startup, false);
+function startup() {
+  colorPicker.value = defaultColor;
+  colorPicker.addEventListener("input", updateColor, false)
+}
+function updateColor() {
+  paintColor = colorPicker.value;
+  rainbowOn = false;
+  darkenOn = false;
 }
 
 
