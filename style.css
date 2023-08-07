@@ -121,16 +121,6 @@ body {
   box-shadow: 4px 4px  5px rgb(157, 157, 141);
 }
 
-.tile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .gritOn {
   border: 0.5px solid rgb(198, 198, 198);
-}
-
-.tile:hover {
-  background-color: rgb(166, 166, 166);
 }
