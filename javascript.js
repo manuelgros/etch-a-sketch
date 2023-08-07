@@ -25,8 +25,8 @@ let tiles = document.querySelectorAll(".tile");
 function getTileSize(height, width) {
   let tiles = document.querySelectorAll(".tile");
   for (let i = 0; i < tiles.length; i++) {
-    tiles[i].style.width = `${500/height}px`;
-    tiles[i].style.height = `${500/width}px`;
+    tiles[i].style.width = `${520/height}px`;
+    tiles[i].style.height = `${520/width}px`;
   }
 }
   //bringing together the single steps of canvas creations
