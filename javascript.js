@@ -72,10 +72,11 @@ let rainbowOn = false;
 function toggleRainbow() {
   rainbowOn = !rainbowOn;
   toggleBtnColor(btnRainbow,rainbowOn);//changes btn color when toggled on
-  //Deactivates darken when rainbow is on
+  //Deactivates darken and eraser when rainbow is on
   darkenOn = false;
   toggleBtnColor(btnDarken, darkenOn);
-  console.log(rainbowOn)
+  eraserOn = false;
+  toggleBtnColor(btnEraser, eraserOn);
 }
   //let button toggle rainbow mode
 btnRainbow.addEventListener('click', toggleRainbow);
@@ -150,7 +151,24 @@ function updateColor() {
   paintColor = colorPicker.value;
   rainbowOn = false;
   darkenOn = false;
+  eraserOn = false;
+  toggleBtnColor(btnDarken, darkenOn);
+  toggleBtnColor(btnRainbow, rainbowOn);
+  toggleBtnColor(btnEraser, eraserOn);
 }
+
+//Eraser feature
+const btnEraser = document.querySelector("#eraser");
+let eraserOn = false;
+btnEraser.addEventListener('click', () => {
+  paintColor = ("#ffffff")
+  rainbowOn = false;
+  darkenOn = false;
+  eraserOn = true;
+  toggleBtnColor(btnDarken, darkenOn);
+  toggleBtnColor(btnRainbow, rainbowOn);
+  toggleBtnColor(btnEraser, eraserOn);
+})
 
 
 // Clear button 
@@ -228,8 +246,10 @@ btnDarken.addEventListener('click', () => {
   darkenOn = !darkenOn;
   toggleBtnColor(btnDarken, darkenOn);
   //Deactivate Rainbow when darken is on 
-  rainbowOn = false
+  rainbowOn = false;
   toggleBtnColor(btnRainbow, rainbowOn);
+  eraserOn = false;
+  toggleBtnColor(btnEraser, eraserOn);
 })
 
 
