@@ -15,6 +15,7 @@ body {
   align-items: center;
   height: 170px;
   font-size: 20px;
+  user-select: none;
 }
 
 #application {
@@ -51,12 +52,18 @@ body {
   height: 40px;
   box-shadow: 3px 3px 5px grey;
   font-family: monospace;
+  user-select: none;
 }
 
 .controls button:hover {
   /* background-color: black; */
   background-color: #023C40;
   color: white;
+}
+
+.toggleOn {
+  background-color: #023C40 !important;
+  color: white !important;
 }
 
 #paintColor {

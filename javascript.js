@@ -219,11 +219,13 @@ btnGrit.addEventListener('click', () => {
 //Changing btn colors, indicating of toggled On or Off
  function toggleBtnColor(btn, condition) {
   if (condition) {
-    btn.style.color = 'white';
-    btn.style.backgroundColor = '#023C40';
+    // btn.style.color = 'white';
+    // btn.style.backgroundColor = '#023C40';
+    btn.classList.add("toggleOn");
   } else {
-    btn.style.color = 'black';
-    btn.style.backgroundColor = 'white';
+    // btn.style.color = 'black';
+    // btn.style.backgroundColor = 'white';
+    btn.classList.remove("toggleOn");
   }
 }
 
