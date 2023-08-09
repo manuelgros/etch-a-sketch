@@ -35,7 +35,7 @@ function getTileSize(height, width) {
   }
 }
   //bringing together the single steps of canvas creations
-function createCanvas (height, width) {
+function createCanvas(height, width) {
   getTileElements(getTileArray(height, width));
   getTileSize(height, width);
 }
@@ -287,8 +287,7 @@ btnGrit.addEventListener('click', () => {
 
 //Initial function calls to create canvas
 addEventListener('load', () => {
-  getTileElements(getTileArray(canvasHeight, canvasWidth)); 
-  getTileSize(canvasHeight, canvasWidth); 
+  createCanvas(canvasHeight, canvasWidth);
   setCanvasColor(backgroundColor);
   draw(); 
 })
