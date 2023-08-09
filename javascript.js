@@ -191,8 +191,13 @@ function dodgeAndBurn(e) {
       newRgbArray.push(colorNr);
     }} else if (lightenOn) {
       for (i = 0; i < rgbArray.length; i++) {
-        let colorNr = +rgbArray[i] + (+rgbArray[i]*0.1);
-        newRgbArray.push(colorNr);
+        if (+rgbArray[i] == 0) { //makes it possible to lighten black
+          let colorNr = +rgbArray[i] + 20;
+          newRgbArray.push(colorNr);
+        } else {
+          let colorNr = +rgbArray[i] + (+rgbArray[i]*0.1);
+          newRgbArray.push(colorNr);
+        }
       } 
     }
     e.style.backgroundColor = `rgb(${newRgbArray[0]}, ${newRgbArray[1]}, ${newRgbArray[2]})`;
