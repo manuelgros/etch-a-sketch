@@ -43,6 +43,7 @@ function setCanvasWhite() {
 }
 
 
+
 //Set grit Size to button selection
 const btnSize = document.querySelectorAll(".sizes");
 for (i = 0; i < btnSize.length; i++) {
@@ -63,6 +64,7 @@ function deleteTiles() {
     document.getElementById(`tile${[i]}`).remove();
   }
 } 
+
 
 
 // Rainbow mode
@@ -90,6 +92,7 @@ function rainbowGenerator() {
   const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
   return randomColor;
 } // see draw() for implementation of rainbow mode in drawing process
+
 
 
 //Implement drawing function 
@@ -140,6 +143,7 @@ function draw() {
 // }
 
 
+
 //Color Picker to select paint color
 const colorPicker = document.querySelector("#colorPicker");
 const defaultColor = "#000000";
@@ -176,6 +180,7 @@ btnEraser.addEventListener('click', () => {
   toggleBtnColor(btnEraser, eraserOn);
   toggleBtnColor(btnLighten, lightenOn);
 })
+
 
 
 // Clear button 
@@ -222,6 +227,7 @@ btnGrit.addEventListener('click', () => {
   toggleBtnColor(btnGrit, gritOn);//changes btn color when toggled on
 })
 
+
  
 //Changing btn colors, indicating of toggled On or Off
  function toggleBtnColor(btn, condition) {
@@ -231,6 +237,7 @@ btnGrit.addEventListener('click', () => {
     btn.classList.remove("toggleOn");
   }
 }
+
 
 
 //Darken and Lighten Effect
@@ -278,6 +285,7 @@ btnLighten.addEventListener('click', () => {
   eraserOn = false;
   toggleBtnColor (btnEraser, eraserOn)
 })
+
 
 
 
