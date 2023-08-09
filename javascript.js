@@ -35,10 +35,10 @@ function createCanvas (height, width) {
   getTileSize(height, width);
 }
   //set canvas color to white (clear canvas)
-function setCanvasWhite() {
+function setCanvasColor(backgroundColor) {
   let tiles = document.querySelectorAll(".tile");
   for (let i = 0; i < tiles.length; i++) {
-    tiles[i].style.setProperty('background-color', 'rgb(255, 255, 255)');
+    tiles[i].style.setProperty('background-color', `${backgroundColor}`);
   }
 }
 
@@ -53,7 +53,7 @@ for (i = 0; i < btnSize.length; i++) {
     let canvasWidth = e.target.getAttribute('data-size');//set width
     getTileElements(getTileArray(canvasHeight, canvasWidth));//getting tile elements with new arguments
     getTileSize(canvasHeight, canvasWidth);//set tile height/width based on new dimensions
-    setCanvasWhite();
+    setCanvasColor();
     draw();
   })
 }
@@ -147,12 +147,12 @@ function draw() {
 //Color Picker to select paint color
 const colorPicker = document.querySelector("#colorPicker");
 const defaultColor = "#000000";
-let paintColor = "#000000"
-window.addEventListener("load", startup, false);
-function startup() {
+let paintColor = "#000000";
+window.addEventListener("load", startupColorPicker, false);
+function startupColorPicker() {
   colorPicker.value = defaultColor;
-  colorPicker.addEventListener("input", updateColor, false)
-  colorPicker.addEventListener("blur", updateColor, false)//sets color even without change
+  colorPicker.addEventListener("input", updateColor, false);
+  colorPicker.addEventListener("blur", updateColor, false);//sets color even without change
 }
 function updateColor() {
   paintColor = colorPicker.value;
@@ -165,6 +165,25 @@ function updateColor() {
   toggleBtnColor(btnEraser, eraserOn);
   toggleBtnColor(btnLighten, lightenOn);
 }
+
+
+
+//Color Picker to select Background Color
+const backgroundPicker = document.querySelector("#backgroundPicker");
+const defaultBackground = "#ffffff";
+let backgroundColor = "#ffffff";
+window.addEventListener("load", startupBackgroundPicker, false);
+function startupBackgroundPicker() {
+  backgroundPicker.value = defaultBackground;
+  backgroundPicker.addEventListener("input", updateBackground, false);
+  backgroundPicker.addEventListener("blur", updateBackground, false);
+}
+function updateBackground() {
+  backgroundColor = backgroundPicker.value;
+  setCanvasColor(backgroundColor);
+}
+
+
 
 //Eraser feature
 const btnEraser = document.querySelector("#eraser");
@@ -185,7 +204,9 @@ btnEraser.addEventListener('click', () => {
 
 // Clear button 
 const btnClear = document.querySelector('#clear');
-btnClear.addEventListener('click', setCanvasWhite);
+btnClear.addEventListener('click', () => {
+  setCanvasColor(backgroundColor);
+});
 
 
 // OLD DELETE BUTTON
@@ -287,6 +308,6 @@ btnLighten.addEventListener('click', () => {
 addEventListener('load', () => {
   getTileElements(getTileArray(canvasHeight, canvasWidth)); 
   getTileSize(canvasHeight, canvasWidth); 
-  setCanvasWhite();
+  setCanvasColor(backgroundColor);
   draw(); 
 })
