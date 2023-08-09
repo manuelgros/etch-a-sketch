@@ -184,12 +184,6 @@ btnEraser.addEventListener('click', () => {
 
 
 // Clear button 
-function setCanvasWhite() {
-  let tiles = document.querySelectorAll(".tile");
-  for (let i = 0; i < tiles.length; i++) {
-    tiles[i].style.setProperty('background-color', 'rgb(255, 255, 255)');
-  }
-}
 const btnClear = document.querySelector('#clear');
 btnClear.addEventListener('click', setCanvasWhite);
 
