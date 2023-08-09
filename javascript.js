@@ -1,7 +1,34 @@
 //Create the Grid for #canvas
   //Initial size for Canvas
-let canvasHeight = 16;
-let canvasWidth = 16;
+const defaultGritSize = 16
+let canvasHeight = defaultGritSize;
+let canvasWidth = defaultGritSize;
+  // Set grit size by slider
+const gritSizeSlider = document.querySelector("#gritSlider");
+window.addEventListener("load", startupGritSizeSlider, false);
+function startupGritSizeSlider() {
+  gritSizeSlider.value = defaultGritSize;
+  gritSizeSlider.addEventListener("input", updateGritSize, false);
+}
+function updateGritSize() {
+  deleteTiles();
+  let canvasHeight = gritSizeSlider.value;
+  let canvasWidth = gritSizeSlider.value;
+  getTileElements(getTileArray(canvasHeight, canvasWidth));
+  getTileSize(canvasHeight, canvasWidth);
+  setCanvasColor(backgroundColor);
+  gritToggle();
+  draw();
+}
+  //Set text for the size display
+const outputGritSize1 = document.querySelector("#gritValue1");
+const outputGritSize2 = document.querySelector("#gritValue2")
+outputGritSize1.textContent = gritSizeSlider.value;
+outputGritSize2.textContent = gritSizeSlider.value;
+gritSizeSlider.oninput = function () {
+  outputGritSize1.textContent = this.value;
+  outputGritSize2.textContent = this.value;
+}
   //Loop that creates Array based on height and width of desired canvas
 function getTileArray(height, width) {
   let tileArray = [];
@@ -46,30 +73,13 @@ function setCanvasColor(backgroundColor) {
     tiles[i].style.setProperty('background-color', `${backgroundColor}`);
   }
 }
-
-
-
-//Set grit Size to button selection
-const btnSize = document.querySelectorAll(".sizes");
-for (i = 0; i < btnSize.length; i++) {
-  btnSize[i].addEventListener('click', (e) => {
-    deleteTiles();//deleting old grit
-    let canvasHeight = e.target.getAttribute('data-size');//set height
-    let canvasWidth = e.target.getAttribute('data-size');//set width
-    getTileElements(getTileArray(canvasHeight, canvasWidth));//getting tile elements with new arguments
-    getTileSize(canvasHeight, canvasWidth);//set tile height/width based on new dimensions
-    setCanvasColor(backgroundColor);
-    gritToggle();
-    draw();
-  })
-}
   //Deleting old Tiles (necessary when creating Canvas with different sized grit)
 function deleteTiles() {
   let tiles = document.querySelectorAll(".tile");
   for (let i = 0; i < tiles.length; i++) {
     document.getElementById(`tile${[i]}`).remove();
   }
-} 
+}
 
 
 
@@ -291,3 +301,25 @@ addEventListener('load', () => {
   setCanvasColor(backgroundColor);
   draw(); 
 })
+
+
+
+
+
+
+// OLD CODE
+
+//Set grit Size to button selection
+//  const btnSize = document.querySelectorAll(".sizes");
+//  for (i = 0; i < btnSize.length; i++) {
+//    btnSize[i].addEventListener('click', (e) => {
+//      deleteTiles();//deleting old grit
+//      let canvasHeight = e.target.getAttribute('data-size');
+//      let canvasWidth = e.target.getAttribute('data-size');
+//      getTileElements(getTileArray(canvasHeight, canvasWidth));
+//      getTileSize(canvasHeight, canvasWidth);
+//      setCanvasColor(backgroundColor);
+//      gritToggle();
+//      draw();
+//    })
+//  }
