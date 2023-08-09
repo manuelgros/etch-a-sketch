@@ -19,17 +19,59 @@ body {
 }
 
 #application {
+  background-color: #b8c4be;
+  border-radius: 7px;
+  margin: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-bottom: 5px;
+}
+
+#applicationMain {
   display: flex;
   margin: 20px;
   margin-top: 0px;
+  margin-bottom: 0;
   padding: 25px;
-  border-radius: 7px;
+  /* border-radius: 7px; */
   justify-content: center;
   gap: 50px;
+  padding-bottom: 10px;
   /* gap: 40px; */
   /* background-color: rgb(234, 234, 214); */
-  background-color: #b8c4be;
+  /* background-color: #b8c4be; */
 }
+
+#applicationFooter {
+  display: flex;
+  justify-content: center;
+  /* background-color: #b8c4be; */
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+#middleBox {
+display: flex;
+width: 520px;
+align-items: center;
+gap: 10px;
+font-size: 15px;
+}
+
+#backgroundPicker {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+/* #backgroundPicker::-webkit-color-swatch {
+  border-radius: 50%;
+} */
 
 .controls {
   display: flex;
