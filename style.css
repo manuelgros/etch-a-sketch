@@ -136,24 +136,28 @@ body {
   /* border: 5px double #8d8282; */
 }
 
-/* #gritControls {
-  margin-left: 0;
-  justify-content: flex-end;
-  padding: 0px;
-  padding-bottom: 10px;
-  height: auto;
+#gritSize {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
 
-#gritControls p {
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 4px double #023C40;
-  margin-bottom: -10px;
-} 
+#gritSlider {
+  -webkit-appearance: none;
+  height: 7px;
+  border-radius: 5px;
+}
 
-/* #gritControls button {
-      box-shadow: none; 
-} */ 
+#gritSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%; 
+  background: #000000;
+  cursor: pointer;
+  
+}
 
 #canvas {
   display: flex;
