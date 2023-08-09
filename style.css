@@ -57,11 +57,11 @@ body {
 }
 
 #rightBox {
-display: flex;
-width: 550px;
-align-items: center;
-gap: 10px;
-font-size: 14px;
+  display: flex;
+  width: 550px;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
 }
 
 #backgroundPicker {
