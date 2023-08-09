@@ -148,6 +148,7 @@ window.addEventListener("load", startup, false);
 function startup() {
   colorPicker.value = defaultColor;
   colorPicker.addEventListener("input", updateColor, false)
+  colorPicker.addEventListener("blur", updateColor, false)//sets color even without change
 }
 function updateColor() {
   paintColor = colorPicker.value;
