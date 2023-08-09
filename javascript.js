@@ -73,34 +73,6 @@ function deleteTiles() {
 
 
 
-// Rainbow mode
-const btnRainbow = document.querySelector("#rainbow");
-let rainbowOn = false;
-  //Toggle rainbow mode on/off
-function toggleRainbow() {
-  rainbowOn = !rainbowOn;
-  toggleBtnColor(btnRainbow,rainbowOn);//changes btn color when toggled on
-  //Deactivates darken and eraser when rainbow is on
-  darkenOn = false;
-  eraserOn = false;
-  lightenOn = false;
-  toggleBtnColor(btnDarken, darkenOn);
-  toggleBtnColor(btnEraser, eraserOn);
-  toggleBtnColor(btnLighten, lightenOn);
-}
-  //let button toggle rainbow mode
-btnRainbow.addEventListener('click', toggleRainbow);
-  //Create "Rainbow" color
-function random(number) {
-  return Math.floor(Math.random() * number);
-}
-function rainbowGenerator() {
-  const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-  return randomColor;
-} // see draw() for implementation of rainbow mode in drawing process
-
-
-
 //Implement drawing function 
 function draw() {
   let tiles = document.querySelectorAll(".tile");
@@ -137,16 +109,6 @@ function draw() {
     }})
   }
 }
-
-
-// Let user use buttons to set paint color OLD METHOD, updated to Color Picker 
-// let paintColor = "black"; //initially selected color
-// const btnColors = document.querySelectorAll('#paintControls button');
-// for (i = 0; i < btnColors.length; i++) {
-//   btnColors[i].addEventListener('click', (e) => {
-//     paintColor = e.target.id;
-//   })
-// }
 
 
 
@@ -207,59 +169,6 @@ btnEraser.addEventListener('click', () => {
 
 
 
-// Clear button 
-const btnClear = document.querySelector('#clear');
-btnClear.addEventListener('click', () => {
-  setCanvasColor(backgroundColor);
-});
-
-
-// OLD DELETE BUTTON
-// Worked through deleting backgroundColor values. Changed to setting all tiles
-// to white initially, so that darkenColor() works on them from the start
-//        const btnClear = document.querySelector('#clear');
-//        btnClear.addEventListener('click', () => {
-//          let paintedTiles = document.querySelectorAll(".painted");
-//          for (let i = 0; i < paintedTiles.length; i++) {
-//            // paintedTiles[i].style.setProperty('background-color', 'initial');
-//            paintedTiles[i].style.removeProperty('background-color');
-//            paintedTiles[i].classList.remove('painted');
-//          }
-//        })
-
-
-// Toggle Grit 
-const btnGrit = document.querySelector("#toggleGrit");
-let gritOn = false;
-function gritToggle() {
-  let tiles = document.querySelectorAll(".tile");
-  for (i = 0; i < tiles.length; i++) {
-    if (gritOn) {
-      tiles[i].classList.add('gritOn');
-    } else {
-      tiles[i].classList.remove('gritOn');
-    }
-  }
-}
-btnGrit.addEventListener('click', () => {
-  gritOn = !gritOn;
-  gritToggle()
-  toggleBtnColor(btnGrit, gritOn);//changes btn color when toggled on
-})
-
-
- 
-//Changing btn colors, indicating of toggled On or Off
- function toggleBtnColor(btn, condition) {
-  if (condition) {
-    btn.classList.add("toggleOn");
-  } else {
-    btn.classList.remove("toggleOn");
-  }
-}
-
-
-
 //Darken and Lighten Effect
 function dodgeAndBurn(e) {
   const color = e.style.backgroundColor;
@@ -306,6 +215,73 @@ btnLighten.addEventListener('click', () => {
   toggleBtnColor (btnEraser, eraserOn)
 })
 
+
+
+// Rainbow mode
+const btnRainbow = document.querySelector("#rainbow");
+let rainbowOn = false;
+  //Toggle rainbow mode on/off
+function toggleRainbow() {
+  rainbowOn = !rainbowOn;
+  toggleBtnColor(btnRainbow,rainbowOn);//changes btn color when toggled on
+  //Deactivates darken and eraser when rainbow is on
+  darkenOn = false;
+  eraserOn = false;
+  lightenOn = false;
+  toggleBtnColor(btnDarken, darkenOn);
+  toggleBtnColor(btnEraser, eraserOn);
+  toggleBtnColor(btnLighten, lightenOn);
+}
+  //let button toggle rainbow mode
+btnRainbow.addEventListener('click', toggleRainbow);
+  //Create "Rainbow" color
+function random(number) {
+  return Math.floor(Math.random() * number);
+}
+function rainbowGenerator() {
+  const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  return randomColor;
+} // see draw() for implementation of rainbow mode in drawing process
+
+
+
+// Clear button 
+const btnClear = document.querySelector('#clear');
+btnClear.addEventListener('click', () => {
+  setCanvasColor(backgroundColor);
+});
+
+
+
+// Toggle Grit 
+const btnGrit = document.querySelector("#toggleGrit");
+let gritOn = false;
+function gritToggle() {
+  let tiles = document.querySelectorAll(".tile");
+  for (i = 0; i < tiles.length; i++) {
+    if (gritOn) {
+      tiles[i].classList.add('gritOn');
+    } else {
+      tiles[i].classList.remove('gritOn');
+    }
+  }
+}
+btnGrit.addEventListener('click', () => {
+  gritOn = !gritOn;
+  gritToggle()
+  toggleBtnColor(btnGrit, gritOn);//changes btn color when toggled on
+})
+
+
+ 
+//Changing btn colors, indicating of toggled On or Off
+ function toggleBtnColor(btn, condition) {
+  if (condition) {
+    btn.classList.add("toggleOn");
+  } else {
+    btn.classList.remove("toggleOn");
+  }
+}
 
 
 
