@@ -176,7 +176,6 @@ window.addEventListener("load", startupBackgroundPicker, false);
 function startupBackgroundPicker() {
   backgroundPicker.value = defaultBackground;
   backgroundPicker.addEventListener("input", updateBackground, false);
-  backgroundPicker.addEventListener("blur", updateBackground, false);
 }
 function updateBackground() {
   backgroundColor = backgroundPicker.value;
