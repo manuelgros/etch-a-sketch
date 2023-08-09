@@ -23,10 +23,15 @@ function getTileElements(array) {
   // Set tile size trough function to make grit size adjustable 
 let tiles = document.querySelectorAll(".tile");
 function getTileSize(height, width) {
+  const canvas = document.querySelector("#canvas");
+  let canvasHInPx = window.getComputedStyle(canvas).height;
+  let canvasWInPx = window.getComputedStyle(canvas).width;
+  let canvasH = canvasHInPx.slice(0, canvasHInPx.indexOf("p"));
+  let canvasW = canvasWInPx.slice(0, canvasWInPx.indexOf("p"));
   let tiles = document.querySelectorAll(".tile");
   for (let i = 0; i < tiles.length; i++) {
-    tiles[i].style.width = `${520/height}px`;
-    tiles[i].style.height = `${520/width}px`;
+    tiles[i].style.width = `${canvasW/width}px`;
+    tiles[i].style.height = `${canvasH/height}px`;
   }
 }
   //bringing together the single steps of canvas creations
@@ -53,7 +58,8 @@ for (i = 0; i < btnSize.length; i++) {
     let canvasWidth = e.target.getAttribute('data-size');//set width
     getTileElements(getTileArray(canvasHeight, canvasWidth));//getting tile elements with new arguments
     getTileSize(canvasHeight, canvasWidth);//set tile height/width based on new dimensions
-    setCanvasColor();
+    setCanvasColor(backgroundColor);
+    gritToggle();
     draw();
   })
 }
