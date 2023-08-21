@@ -98,7 +98,10 @@ function draw() {
       } else if (darkenOn || lightenOn) {
         dodgeAndBurn(e.target);
         e.target.classList.add('painted');
-      } else {
+      } else if (eraserOn) {
+        e.target.style.backgroundColor = backgroundColor;
+        e.target.classList.remove('painted');
+      }else {
         e.target.style.backgroundColor = paintColor;
         e.target.classList.add('painted');
       }
@@ -112,7 +115,10 @@ function draw() {
         } else if (darkenOn || lightenOn) {
           dodgeAndBurn(e.target);
           e.target.classList.add('painted');
-        } else {
+        } else if (eraserOn) {
+          e.target.style.backgroundColor = backgroundColor;
+          e.target.classList.remove('painted');
+        }else {
           e.target.style.backgroundColor = paintColor;
           e.target.classList.add('painted');
         }
@@ -166,10 +172,9 @@ function updateBackground() {
 const btnEraser = document.querySelector("#eraser");
 let eraserOn = false;
 btnEraser.addEventListener('click', () => {
-  paintColor = ("#ffffff")
   rainbowOn = false;
   darkenOn = false;
-  eraserOn = true;
+  eraserOn = !eraserOn;
   lightenOn = false;
   toggleBtnColor(btnDarken, darkenOn);
   toggleBtnColor(btnRainbow, rainbowOn);
