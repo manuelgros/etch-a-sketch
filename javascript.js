@@ -66,7 +66,7 @@ function createCanvas(height, width) {
   getTileElements(getTileArray(height, width));
   getTileSize(height, width);
 }
-  //set canvas color to white (clear canvas)
+  //set canvas background color 
 function setCanvasColor(backgroundColor) {
   let tiles = document.querySelectorAll(".tile");
   for (let i = 0; i < tiles.length; i++) {
@@ -96,7 +96,7 @@ function draw() {
       e.target.style.backgroundColor = rainbowGenerator();
       e.target.classList.add('painted');
       } else if (darkenOn || lightenOn) {
-        dodgeAndBurn(e.target);
+      dodgeAndBurn(e.target);
         e.target.classList.add('painted');
       } else if (eraserOn) {
         e.target.style.backgroundColor = backgroundColor;
@@ -311,25 +311,3 @@ addEventListener('load', () => {
   setCanvasColor(backgroundColor);
   draw(); 
 })
-
-
-
-
-
-
-// OLD CODE
-
-//Set grit Size to button selection
-//  const btnSize = document.querySelectorAll(".sizes");
-//  for (i = 0; i < btnSize.length; i++) {
-//    btnSize[i].addEventListener('click', (e) => {
-//      deleteTiles();//deleting old grit
-//      let canvasHeight = e.target.getAttribute('data-size');
-//      let canvasWidth = e.target.getAttribute('data-size');
-//      getTileElements(getTileArray(canvasHeight, canvasWidth));
-//      getTileSize(canvasHeight, canvasWidth);
-//      setCanvasColor(backgroundColor);
-//      gritToggle();
-//      draw();
-//    })
-//  }
